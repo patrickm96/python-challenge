@@ -3,7 +3,7 @@ import csv
 import numpy as np
 from statistics import mean
 
-csvpath = os.path.join('.', 'PyBank', 'Resources','budget_data.csv')
+csvpath = os.path.join('.', 'Resources','budget_data.csv')
 
 month_year = []
 profit_loss= []

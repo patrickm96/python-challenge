@@ -3,7 +3,7 @@ import csv
 import numpy as np
 import array as arr
 
-csvpath = os.path.join('.','PyPoll', 'Resources','election_data.csv')
+csvpath = os.path.join('.', 'Resources','election_data.csv')
 
 ballot_id = []
 county_name = []
