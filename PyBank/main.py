@@ -1,63 +1,53 @@
+#Import modules
 import os
 import csv
 import numpy as np
 from statistics import mean
 
-csvpath = os.path.join('.', 'Resources','budget_data.csv')
+#Path to .csv file
+csvpath = os.path.join('.', 'PyBank', 'Resources','budget_data.csv')
 
+#List for month and year
 month_year = []
+#List for profit/loss for each month and year
 profit_loss= []
-#Change is 0 for first month/row as there is no previous month
+#First monthly change value is 0 as there is no previous month/value
 monthly_change = [0]
 
-
+#Open .csv file
 with open(csvpath,"r") as csvfile:
     csvreader = csv.reader(csvfile,delimiter=',')
-    #print(csvreader)
 
+    #Skip .csv file header
     csv_header = next(csvreader)
-    #print(f"CSV Header: {csv_header}")
-
-    #change = numpy.diff(profit_loss)
 
     for row in csvreader:
+        #Populate lists
         month_year.append(row[0])
         profit_loss.append(int(row[1]))
-        #monthly_change.append(numpy.diff(profit_loss))
-        #first_month_change += 1
-        #if first_month_change 
+        #Calculate number of rows
         total_months = len(month_year)
+        #Calculate total of profit/loss column
         total_value = sum(profit_loss)
-        #monthly_change.append(profit_loss[row+1] - profit_loss[row])
-        #monthly_change2 = np.diff(profit_loss)
-        #avg_monthly_change = np.mean(monthly_change2)
 
+#Calculate difference in profit/loss from month-to-month
 monthly_change_all = np.diff(profit_loss)
+#Add month-to-month profit/loss differences to monthly_change list for average calculation
 monthly_change = np.append(monthly_change, np.diff(profit_loss))
-
-#print(f'{monthly_change}')
-#print(month_year)
-#print(profit_loss)
-#Test monthly change 
-#print(monthly_change)
-#print(first_month_change)
-#print(profit_loss[row])
+#Calculate index/position of maximum month-to-month profit/loss differences
 max_change_index = np.where(monthly_change == max(monthly_change))[0][0]
-#print(month_year.index('Jan-10'))
-#print(max_change_index)
+#Convert max index/position to integer
 max_change_integer = int(max_change_index)
+#Return month-year from month_year list that is in the position of maximum number in monthly_change list
 max_change_month = month_year[max_change_integer]
-#print(max_change_integer)
-#print(max_change_month)
-
+#Calculate index/position of minimum month-to-month profit/loss differences
 min_change_index = np.where(monthly_change == min(monthly_change))[0][0]
-#print(month_year.index('Jan-10'))
-#print(min_change_index)
+#Convert min index/position to integer
 min_change_integer = int(min_change_index)
+#Return month-year from month_year list that is in the position of minimum number in monthly_change list
 min_change_month = month_year[min_change_integer]
-#print(min_change_integer)
-#print(min_change_month)
 
+#Print results
 print("Finanical Analysis")
 print("-----------------------------")
 print(f'Total Months: {total_months}')
