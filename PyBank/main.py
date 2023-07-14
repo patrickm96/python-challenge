@@ -64,3 +64,7 @@ with open(output_path, 'w') as txtfile:
     txtwriter.writerow(['Financial Analysis'])
     txtwriter.writerow(['-----------------------------'])
     txtwriter.writerow([f'Total Months: {total_months}'])
+    txtwriter.writerow([f'Total: ${total_value}'])
+    txtwriter.writerow([f'Average Change: ${round(np.mean(monthly_change_all),2)}'])
+    txtwriter.writerow([f'Greatest Increase in Profits: {max_change_month} (${max(monthly_change)})'])
+    txtwriter.writerow([f'Greatest Decrease in Profits: {min_change_month} (${min(monthly_change)})'])
