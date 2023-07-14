@@ -77,6 +77,7 @@ print(f'{candidate_2_name}: {candidate_2_vote_percent} ({candidate_2_vote_count}
 print(f'{candidate_3_name}: {candidate_3_vote_percent} ({candidate_3_vote_count})')
 print("-----------------------------")
 print(f'Winner: {candidate_winner}')
+print("-----------------------------")
 
 #Export to analysis folder as .txt file
 output_path = os.path.join('.', 'PyPoll', 'Analysis','pypoll_results.txt')
@@ -93,3 +94,4 @@ with open(output_path, 'w') as txtfile:
     txtwriter.writerow([f'{candidate_3_name}: {candidate_3_vote_percent} ({candidate_3_vote_count})'])
     txtwriter.writerow(['-----------------------------'])
     txtwriter.writerow([f'Winner: {candidate_winner}'])
+    txtwriter.writerow(['-----------------------------'])
