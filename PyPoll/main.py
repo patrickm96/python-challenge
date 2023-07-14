@@ -77,3 +77,19 @@ print(f'{candidate_2_name}: {candidate_2_vote_percent} ({candidate_2_vote_count}
 print(f'{candidate_3_name}: {candidate_3_vote_percent} ({candidate_3_vote_count})')
 print("-----------------------------")
 print(f'Winner: {candidate_winner}')
+
+#Export to analysis folder as .txt file
+output_path = os.path.join('.', 'PyPoll', 'Analysis','pybank_results.txt')
+
+#Write text file
+with open(output_path, 'w') as txtfile:
+    txtwriter = csv.writer(txtfile)
+    txtwriter.writerow(['Election Results'])
+    txtwriter.writerow(['-----------------------------'])
+    txtwriter.writerow([f'Total Votes: {total_vote_count}'])
+    txtwriter.writerow(['-----------------------------'])
+    txtwriter.writerow([f'{candidate_1_name}: {candidate_1_vote_percent} ({candidate_1_vote_count})'])
+    txtwriter.writerow([f'{candidate_2_name}: {candidate_2_vote_percent} ({candidate_2_vote_count})'])
+    txtwriter.writerow([f'{candidate_3_name}: {candidate_3_vote_percent} ({candidate_3_vote_count})'])
+    txtwriter.writerow(['-----------------------------'])
+    txtwriter.writerow([f'Winner: {candidate_winner}'])

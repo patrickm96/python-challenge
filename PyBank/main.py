@@ -59,6 +59,7 @@ print(f'Greatest Decrease in Profits: {min_change_month} (${min(monthly_change)}
 #Export to analysis folder as .txt file
 output_path = os.path.join('.', 'PyBank', 'Analysis','pybank_results.txt')
 
+#Write text file
 with open(output_path, 'w') as txtfile:
     txtwriter = csv.writer(txtfile)
     txtwriter.writerow(['Financial Analysis'])
