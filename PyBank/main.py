@@ -55,3 +55,12 @@ print(f'Total: ${total_value}')
 print(f'Average Change: ${round(np.mean(monthly_change_all),2)}')
 print(f'Greatest Increase in Profits: {max_change_month} (${max(monthly_change)})')
 print(f'Greatest Decrease in Profits: {min_change_month} (${min(monthly_change)})')
+
+#Export to analysis folder as .txt file
+output_path = os.path.join('.', 'PyBank', 'Analysis','pybank_results.txt')
+
+with open(output_path, 'w') as txtfile:
+    txtwriter = csv.writer(txtfile)
+    txtwriter.writerow(['Financial Analysis'])
+    txtwriter.writerow(['-----------------------------'])
+    txtwriter.writerow([f'Total Months: {total_months}'])
