@@ -79,7 +79,7 @@ print("-----------------------------")
 print(f'Winner: {candidate_winner}')
 
 #Export to analysis folder as .txt file
-output_path = os.path.join('.', 'PyPoll', 'Analysis','pybank_results.txt')
+output_path = os.path.join('.', 'PyPoll', 'Analysis','pypoll_results.txt')
 
 #Write text file
 with open(output_path, 'w') as txtfile:
